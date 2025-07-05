@@ -1,0 +1,162 @@
+
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Mesmo longe, o som ainda nos liga 🎧</title>
+    <style>
+      body {
+        font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+        background: #f5f5f5;
+        color: #333;
+        margin: 0;
+        padding: 20px;
+      }
+
+      h1 {
+        text-align: center;
+        font-size: 2em;
+        margin-bottom: 30px;
+      }
+
+      .card {
+        background: white;
+        border-radius: 10px;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        margin-bottom: 20px;
+        padding: 20px;
+      }
+
+      .card h2 {
+        margin-top: 0;
+      }
+
+      .card button {
+        background-color: #333;
+        color: white;
+        border: none;
+        padding: 8px 16px;
+        margin-top: 10px;
+        border-radius: 5px;
+        cursor: pointer;
+      }
+
+      .card button:hover {
+        background-color: #555;
+      }
+
+      .carta {
+        margin-top: 15px;
+        font-style: italic;
+      }
+
+      .link {
+        margin-top: 10px;
+        display: block;
+        color: #0077cc;
+        text-decoration: underline;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Mesmo longe, o som ainda nos liga 🎧</h1>
+
+    <div id="container"></div>
+
+    <script>
+      const cartas = [
+        {
+          musica: "Everlong (Acoustic) – Foo Fighters",
+          carta:
+            "Essa é a música que eu colocaria se você estivesse deitada do meu lado agora. Só pra tocar enquanto eu te olho e penso: 'como isso tudo começou?'.",
+          link: "https://www.youtube.com/watch?v=4yK6F8cD5Z8",
+        },
+        {
+          musica: "I Wanna Be Yours – Arctic Monkeys",
+          carta:
+            "Essa música é tudo que eu queria te dizer com um sotaque britânico e um pouco de ousadia. Ser o seu — em todas as formas possíveis.",
+          link: "https://www.youtube.com/watch?v=NYI3g3S1tDg",
+        },
+        {
+          musica: "Love of My Life – Queen",
+          carta:
+            "Você chegou como um raio numa tempestade. E agora, não tem como voltar ao silêncio de antes.",
+          link: "https://www.youtube.com/watch?v=sUJkCXE4sAA",
+        },
+        {
+          musica: "Here Without You – 3 Doors Down",
+          carta:
+            "Berlim pode estar a quilômetros... mas você tá aqui, sempre, até quando fecho os olhos.",
+          link: "https://www.youtube.com/watch?v=kPBzTxZQG5Q",
+        },
+        {
+          musica: "Snuff (Acoustic) – Slipknot",
+          carta:
+            "Nem todo amor é fácil. Mas com você, até a dor parece valer cada segundo. Porque você faz até o escuro ter sentido.",
+          link: "https://www.youtube.com/watch?v=LXEKuttVRIo",
+        },
+        {
+          musica: "The Kill (Bury Me) – Thirty Seconds to Mars",
+          carta: "Se amar você é um caos... então eu sou feliz no meio dele.",
+          link: "https://www.youtube.com/watch?v=8yvGCAvOAfM",
+        },
+        {
+          musica: "No One Knows – Queens of the Stone Age",
+          carta:
+            "Às vezes nem eu entendo o que sinto. Mas sei que tudo em mim aponta pra você.",
+          link: "https://www.youtube.com/watch?v=s88r_q7oufE",
+        },
+        {
+          musica: "Sweet Child O’ Mine – Guns N’ Roses",
+          carta:
+            "Quando penso em você sorrindo... é como se o tempo parasse. E essa guitarra tocasse só pra nós dois.",
+          link: "https://www.youtube.com/watch?v=1w7OgIMMRc4",
+        },
+        {
+          musica: "Black – Pearl Jam",
+          carta:
+            "Mesmo que o mundo mude, tem algo em mim que sempre vai te reconhecer. Como se você fosse minha cor favorita num mundo cinza.",
+          link: "https://www.youtube.com/watch?v=cs-XZ_dN4Hc",
+        },
+        {
+          musica: "Patience – Guns N’ Roses",
+          carta:
+            "Eu esperaria mil dias, mil noites... se no fim for você me esperando também.",
+          link: "https://www.youtube.com/watch?v=ErvgV4P6Fzc",
+        },
+      ];
+
+      const container = document.getElementById("container");
+
+      cartas.forEach((item, index) => {
+        const card = document.createElement("div");
+        card.className = "card";
+
+        const titulo = document.createElement("h2");
+        titulo.textContent = `🎵 ${item.musica}`;
+
+        const botao = document.createElement("button");
+        botao.textContent = "Ler Carta";
+
+        const carta = document.createElement("div");
+        carta.className = "carta";
+        carta.style.display = "none";
+        carta.innerHTML = `"${item.carta}"<br><a class='link' href='${item.link}' target='_blank'>Ouvir música 🎶</a>`;
+
+        botao.addEventListener("click", () => {
+          carta.style.display =
+            carta.style.display === "none" ? "block" : "none";
+          botao.textContent =
+            carta.style.display === "none" ? "Ler Carta" : "Ocultar Carta";
+        });
+
+        card.appendChild(titulo);
+        card.appendChild(botao);
+        card.appendChild(carta);
+
+        container.appendChild(card);
+      });
+    </script>
+  </body>
+</html>
